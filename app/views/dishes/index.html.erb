@@ -1,0 +1,39 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Dishes</h1>
+
+<table class="table table-striped">  
+<thead class = 'thead-dark'>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">ID</th>
+      <th colspan= "1"></th>
+    </tr>
+</thead>
+
+<tbody>
+  <% @dishes.each do |dish| %>
+   <!-- %= render dish % -->
+
+   <tr>
+      <td><%= dish.name %></td>
+      <td><%= dish.category %></td>
+      <td><%= dish.dish_id %></td>
+    
+
+      <td><%= button_to "Delete", dish, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn-small btn-outline-danger"  %></td>
+
+    </tr>
+
+
+    <p>
+      <%= link_to "Show this dish", dish %>
+    </p>
+  <% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to "New dish", new_dish_path, class: "btn btn-secondary" %>
