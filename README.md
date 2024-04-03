@@ -1,24 +1,7 @@
-# README
+# ScopoApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello my name is Nabl Ahmed and I am a web developer
 
-Things you may want to cover:
+This is my Ruby on Rails Scopo app for ordering food!
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+follow me @ scopo.com
