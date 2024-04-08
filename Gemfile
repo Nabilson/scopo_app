@@ -7,6 +7,8 @@ gem "rails", "~> 7.0.8", ">= 7.0.8.1"
 
 gem "sprockets-rails"
 
+gem 'jquery-rails', '~> 4.6'
+
 gem "pg", "~> 1.1"
 
 gem "puma", "~> 5.0"

@@ -1,6 +1,8 @@
 class DishesController < ApplicationController
   before_action :set_dish, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_vendor!, except: [:index, :show]
+  before_action :correct_vendor, only: [:edit, :update, :destroy]
+  
   # GET /dishes or /dishes.json
   def index
     @dishes = Dish.all
@@ -12,7 +14,8 @@ class DishesController < ApplicationController
 
   # GET /dishes/new
   def new
-    @dish = Dish.new
+    # @dish = Dish.new
+    @dish = current_vendor.dishes.new
   end
 
   # GET /dishes/1/edit
@@ -21,7 +24,8 @@ class DishesController < ApplicationController
 
   # POST /dishes or /dishes.json
   def create
-    @dish = Dish.new(dish_params)
+    #@dish = Dish.new(dish_params)
+    @dish = current_vendor.dishes.build(dish_params)
 
     respond_to do |format|
       if @dish.save
@@ -57,6 +61,11 @@ class DishesController < ApplicationController
     end
   end
 
+  def correct_vendor
+    @dish = current_vendor.dishes.find_by(id: params[:id])
+    redirect_to dishes_path, notice: "Not authorized to Edit this friend" if @dish.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dish
@@ -65,6 +74,6 @@ class DishesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dish_params
-      params.require(:dish).permit(:name, :category, :dish_id)
+      params.require(:dish).permit(:name, :category, :price, :description, :vendor_id)
     end
 end

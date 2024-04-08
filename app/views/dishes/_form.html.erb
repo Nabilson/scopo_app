@@ -22,10 +22,24 @@
   </div>
 
   <div>
-    <%= form.label :dish_id, style: "display: block" %>
-    <%= form.number_field :dish_id %>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.text_field :price %>
   </div>
 
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <!-- %= form.label :vendor_id, style: "display: block" % -->
+    <%= form.number_field :vendor_id, id: :dish_vendor_id, value: current_vendor.id, type: :hidden %>
+  </div>
+
+    <!-- %= form.label :dish_id, style: "display: block" % -->
+    <!-- %= form.number_field :dish_id % -->
+  
+  </br>
   <div>
     <%= form.submit %>
   </div>
