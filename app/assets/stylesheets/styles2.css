@@ -14,3 +14,60 @@ overflow: hidden;
 #specials-tile{
 	background: url(suya.jpg) no-repeat;
 	background-position: center;
+}
+
+
+#dashboard {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+
+    color: #333;
+}
+
+#orders {
+    list-style: none;
+    padding: 0;
+}
+
+#order {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#order-id {
+    font-weight: bold;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+#order-details {
+    margin-bottom: 5px;
+}
+
+#dispatch-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#dispatch-btn:hover {
+    background-color: #0056b3;
+}
+
+#status {
+    color: #28a745;
+    font-weight: bold;
+}

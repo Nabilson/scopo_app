@@ -7,5 +7,5 @@
   <%= link_to "Back to dishes", dishes_path %>
 </div>
 </br>
-  <%= button_to "Delete this dish", @dish, method: :delete, class: "btn btn-outline-danger btn-small" %>
+  <%= button_to "Delete this dish", @dish, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } ,class: "btn btn-outline-danger btn-small" %>
 </div>

@@ -36,6 +36,11 @@
     <%= form.number_field :vendor_id, id: :dish_vendor_id, value: current_vendor.id, type: :hidden %>
   </div>
 
+  <div>
+    <%= form.label :image, 'Dish Image' %>
+    <%= form.file_field :main_image %>
+  </div>
+
     <!-- %= form.label :dish_id, style: "display: block" % -->
     <!-- %= form.number_field :dish_id % -->
   

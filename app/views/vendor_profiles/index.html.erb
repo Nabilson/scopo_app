@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Vendor profiles</h1>
+
+<div id="vendor_profiles">
+  <% @vendor_profiles.each do |vendor_profile| %>
+    <%= render vendor_profile %>
+    <p>
+      <%= link_to "Show this vendor profile", vendor_profile %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New vendor profile", new_vendor_profile_path %>

@@ -1,4 +1,10 @@
+<% if vendor_signed_in? %>
 
-<div id="main-content" class="container">
+<%= render 'home/dashboard' %>
 
 
+<% else %>
+
+<div id="main-content" class="container"> <!-- This is dynamically loaded through ajax-utils -->
+
+<% end %>

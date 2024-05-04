@@ -9,35 +9,63 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        <% if vendor_signed_in? %>
+        <% if vendor_signed_in? || customer_signed_in? %>
 
-        <li class="nav-item">
-          <%= link_to 'Dishes', dishes_path, class:"nav-link" %>
-        </li>
+                  <% if vendor_signed_in? %>
 
-        <li class="nav-item">
+                        <li class="nav-item">
+                          <%= link_to 'Dishes', dishes_path, class:"nav-link" %>
+                        </li>
 
-          <%= link_to 'Profile', edit_vendor_registration_path, class:"nav-link" %>
-          
-        </li>
+                        <li class="nav-item">
 
-        <li class="nav-item">
+                          <%= link_to 'Profile', vendor_profile_path(current_vendor.vendor_profile), class:"nav-link" %>
+                          
+                        </li>
 
-          <%= button_to 'Sign out', destroy_vendor_session_path, method: :delete, data: {turbo_method: :delete}, class:"nav-link" %>
-          
-        </li>
+                        <li class="nav-item">
+
+                          <%= button_to 'Sign out', destroy_vendor_session_path, method: :delete, data: {turbo_method: :delete}, class:"nav-link" %>
+                          
+                        </li>
+
+                  <% else %>
+
+                        <li class="nav-item">
+
+                          <%= link_to 'Profile', edit_customer_registration_path, class:"nav-link" %>
+                          
+                        </li>
+
+                        <li class="nav-item">
+
+                          <%= button_to 'Sign out', destroy_customer_session_path, form: { data: { turbo_confirm: 'message' }}, method: :delete, class:"nav-link" %>
+                          
+                        </li>
+
+                    <% end %>
 
         <% else %>
 
-        <li class="nav-item">
-          <%= link_to 'Sign in', new_vendor_session_path, class:"nav-link" %>  
-        </li>
-        
-
-        <li class="nav-item">
-          <%= link_to 'Sign Up', new_vendor_registration_path, class:"nav-link" %>  
-        </li>
-
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sign In
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                <%= link_to 'Vendor Sign in', new_vendor_session_path, class:"nav-link" %>
+                <%= link_to 'Customer Sign in', new_customer_session_path, class:"nav-link" %>
+                
+              </div>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Register
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                <%= link_to 'Register as Vendor', new_vendor_registration_path, class:"nav-link" %>
+                <%= link_to 'Register as Customer', new_customer_registration_path, class:"nav-link" %>
+                
+              </div>
+            </li>
         <% end %>
 
         <li class="nav-item">
@@ -46,13 +74,6 @@
           
         </li>
 
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
       </ul>
     </div>
   </div>

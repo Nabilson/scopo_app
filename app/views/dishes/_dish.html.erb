@@ -1,4 +1,6 @@
 <div id="<%= dom_id dish %>">
+  
+  <%= image_tag(@dish.main_image, :class => "dish_image") if @dish.main_image.attached? %>
   <p>
     <strong>Name:</strong>
     <%= dish.name %>

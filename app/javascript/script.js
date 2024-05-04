@@ -54,7 +54,7 @@ $ajaxUtils.sendGetRequest(
 		document.querySelector("#main-content").innerHTML = request;
 	},
 	false);
-	console.log(request.responseText);
+//	console.log(request.responseText);
 });
 
 

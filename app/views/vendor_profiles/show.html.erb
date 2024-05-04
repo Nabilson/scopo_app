@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @vendor_profile %>
+
+<div>
+  <%= link_to "Update vendor profile", edit_vendor_profile_path(@vendor_profile) %>
+  <%= link_to "Account details",  edit_vendor_registration_path %>
+
+  <!-- %= button_to "Destroy this vendor profile", @vendor_profile, method: :delete % -->
+</div>
